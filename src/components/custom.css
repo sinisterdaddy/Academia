@@ -1,0 +1,68 @@
+custom-main-container {
+   height: 86vh;
+    border-bottom: 1px solid #000;
+  
+}
+.btn-custom {
+    background-color: #0F2D25;
+    border-color: #0F2D25;
+    color: white;
+    width: '100px';
+  }
+  
+  /* Add a hover effect */
+  .btn-custom:hover {
+    background-color: #E0E0E0; 
+    border-color: #E0E0E0;
+    color: #333; 
+  }
+
+  .custom-width {
+    width: 100%; 
+    max-width: 200px; 
+  }
+
+  .ask-me-text {
+    margin-top: 20px; /* Adjust the value as needed to move the text down */
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
+  }
+  
+  .transparent-label {
+    background: transparent;
+    border: none;
+    cursor: help; /* Change cursor to a help pointer on hover */
+    position: relative;
+    color: white;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+  
+  /* Style for the popup */
+  .popup {
+    position: absolute;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff; /* Text color */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    bottom: 100%; /* Position above the label */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: pre-line;
+    width: 500px;
+  }
+  
+  /* Show the popup on label hover */
+  .transparent-label:hover .popup {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
