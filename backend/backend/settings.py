@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-ueotk5+qpgf*et69y9x2ti*$vdfexaqofuwjnz0y&h907jrt#1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Localhost', '127.0.0.1']
 
 
 # Application definition
@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hackAI', 
-        'USER': 'postgres',
-        'PASSWORD': 'rk010604',
+        'NAME': 'rk010604', 
+        'USER': 'root',
+        'PASSWORD': '010604',
         'HOST': 'localhost', 
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
