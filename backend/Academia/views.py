@@ -42,10 +42,13 @@ def create(request):
                     record = Academia.objects.get(email=data['email'])
                     record.name = data['name']
                     record.major = data['major']
-                    if data['interests'] not in record.interests:
-                        record.interests.append(data['interests']) #= record.interests['interests'].append(data['interests'])
+                    # Assuming interests is a string of interests separated by commas
+                    current_interests = record.interests.split(',') if record.interests else []
+                    if data['interests'] not in current_interests:
+                        current_interests.append(data['interests'])
+                        record.interests = ','.join(current_interests)
                     record.save()
-                    interest_list = record.interests
+                    interest_list = record.interests.split(',') if record.interests else []
                     
 
 

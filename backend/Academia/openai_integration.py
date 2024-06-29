@@ -4,11 +4,9 @@ import re
 from django.conf import settings
 
 # Initialize OpenAI API
-# settings.configure()
 openai.api_key = settings.OPENAI_API_KEY
 
 def get_gpt_response(user_name, user_major, user_interest):
-    # Construct the prompt
     # Construct the prompt
     prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. 
     Focus on one main topic (branch 0), two primary subtopics, and two sub-branches for each primary subtopic. 
@@ -47,11 +45,18 @@ Branch 2_2 Description: [Brief Branch 2_2 Description]
         response_text = response.choices[0].text.strip()
         return response_text
 
-    except openai.error.OpenAIError as e:
+    except openai.OpenAIError as e:
         print(f"Error encountered: {e}")
         return None
 
+import re
+import json
+
 def extract_branch(text, email, interests):
+    # Check if text is None and handle it
+    if text is None:
+        return json.dumps({"error": "text parameter is None"}, indent=4)
+
     # Split the input text into lines
     lines = text.split('\n')
 
@@ -59,7 +64,6 @@ def extract_branch(text, email, interests):
     data_dict = {}
 
     data_dict["email"] = email
-
     data_dict["interests"] = interests
 
     for line in lines:
@@ -70,7 +74,7 @@ def extract_branch(text, email, interests):
             branch_name, branch_description = match.groups()
             data_dict[branch_name] = branch_description
 
-    json_object = json.dumps(data_dict, indent = 4)
+    json_object = json.dumps(data_dict, indent=4)
 
     return json_object
 
@@ -84,7 +88,7 @@ def get_question(user_interest):
         data_dict = {"question": response_text}
         return json.dumps(data_dict, indent = 4)
 
-    except openai.error.OpenAIError as e:
+    except openai.OpenAIError as e:
         print(f"Error encountered: {e}")
         return None
 
@@ -100,7 +104,7 @@ def feedback_ans(stored_question, stored_answer, user_major):
         data_dict = {"feedback": response_text}
         return json.dumps(data_dict, indent = 4)
 
-    except openai.error.OpenAIError as e:
+    except openai.OpenAIError as e:
         print(f"Error encountered: {e}")
         return None
     
@@ -127,7 +131,6 @@ Only include the bullet points, do not add their descriptions. ends sentence wit
         data_dict = {"explanation": response_text}
         return json.dumps(data_dict, indent = 4)
 
-    except openai.error.OpenAIError as e:
+    except openai.OpenAIError as e:
         print(f"Error encountered: {e}")
         return None
-    
