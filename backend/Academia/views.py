@@ -9,18 +9,8 @@ from . import openai_integration
 
 @csrf_exempt
 def create(request):
-    """
-    REQUEST:
-    {
-    "email": "idk@verizon.com", 
-    "name": "abi daddy",
-    "major": "gender studies",
-    "interests": "lebron's sperm"
-    }
-    RESPONSE
-    {
-    is long :o
-    }"""
+
+
     if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
@@ -76,16 +66,7 @@ def create(request):
 
 @csrf_exempt
 def getinterests(request):
-    """
-    REQUEST
-    {
-    "email": "idk@verizon.com"
-    }
-    RESPONSE
-    {
-    "interests" = [interst1, intestse2, ...]
-    }
-    """
+
     if request.method == 'GET':
         try:
             # Parse JSON data sent from the client
@@ -114,16 +95,7 @@ def getinterests(request):
 
 @csrf_exempt  
 def clicknode(request):
-    """
-    REQUEST
-    {
-    "email": "idk@verizon.com", 
-    "interest": "lebron's sperm"
-    }
-    RESPONSE
-    {
-    returns the same stuff as create
-    }"""
+  
     if request.method == 'PUT':
         try:
             # Parse JSON data sent from the client
@@ -160,17 +132,7 @@ def clicknode(request):
     
 @csrf_exempt
 def returnhome(request):
-    """
-    REQUEST
-    {
-    "email": "idk@verizon.com"
-    }
-    RESPONSE
-    {
-    "name": "lebrone",
-    "major": "pepsi",
-    "email": "lebrone@raymone.cum"
-    }"""
+    
     if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
@@ -199,16 +161,7 @@ def returnhome(request):
     
 @csrf_exempt
 def getquestion(request):
-    """
-    REQUEST
-    {
-    "interest": "lebron"
-    }
-    RESPONSE
-    {
-    "question" : "what is aaaaaaaahhhh?"
-    }
-    """
+    
     if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
@@ -224,18 +177,7 @@ def getquestion(request):
     
 @csrf_exempt
 def feedbackans(request):
-    """
-    REQUEST
-    {
-    "question": "who is lebron?",
-    "answer": "lebron is not the goat",
-    "major": "gender studies"
-    }
-    RESPONSE
-    {
-    "feedback": "that's a good answer!"
-    }
-    """
+    
     if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
@@ -251,17 +193,7 @@ def feedbackans(request):
     
 @csrf_exempt
 def explainmore(request):
-    """
-    REQUEST
-    {
-    "interest": "bronny james",
-    "major": "gender studies"
-    }
-    RESPONSE
-    {
-    "explanation": "1. blah 2. blah..."
-    }
-    """
+    
     if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
